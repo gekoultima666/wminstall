@@ -1,0 +1,21 @@
+#!/bin/bash
+
+git clone https://github.com/gekoultima666/personaldwm-james.git;
+git clone https://github.com/gekoultima666/personalst-james.git;
+cd personaldwm-james;
+make clean install;
+cd ..;
+cd personalst-james;
+make clean install;
+cd ..;
+git clone https://git.suckless.org/dmenu;
+cd dmenu;
+make clean install;
+touch /usr/share/xsessions/dwm.desktop;
+echo $'[Desktop Entry]\nName=dwm\nComment=dynamic, simple, suckless\nExec=dwm\nTryExec=dwm\nType=Application\nIcon=./dwm.png' >> /usr/share/xsessions/dwm.desktop;
+cd ~;
+touch .xinitrc;
+echo "exec dwm" >> .xinitrc;
+cd ~/Desktop;
+wget https://serving.photos.photobox.com/9956889740c0bb6464410c741c7abe3c700c638fd8cd80534acc02688ac7135a80eeac49.jpg;
+startx;
