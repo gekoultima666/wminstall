@@ -1,24 +1,23 @@
 #!/bin/bash
-# run as sudo
 DwmDependencies="freetype2 libx11 libxft libxinerama git";
 echo "Name wanted package names";
 read PkgsNames;
-pacman -S ${DwmDependencies} ${PkgsNames} || apt install ${DwmDependencies} ${PkgsNames} || dnf install ${DwmDependencies} ${PkgsNames} || emerge --ask ${DwmDependencies} ${PkgsNames};
+sudo pacman -S ${DwmDependencies} ${PkgsNames} || sudo apt install ${DwmDependencies} ${PkgsNames} || sudo dnf install ${DwmDependencies} ${PkgsNames} || sudo emerge --ask ${DwmDependencies} ${PkgsNames};
 
 git clone https://github.com/gekoultima666/personaldwm-james.git;
 git clone https://github.com/gekoultima666/personalst-james.git;
 
 cd personaldwm-james;
-make clean install;
+sudo make clean install;
 cd ..;
 
 cd personalst-james;
-make clean install;
+sudo make clean install;
 cd ..;
 
 git clone https://git.suckless.org/dmenu;
 cd dmenu;
-make clean install;
+sudo make clean install;
 
 touch /usr/share/xsessions/dwm.desktop;
 echo $'[Desktop Entry]\nName=dwm\nComment=dynamic, simple, suckless\nExec=dwm\nTryExec=dwm\nType=Application\nIcon=./dwm.png' >> /usr/share/xsessions/dwm.desktop;
