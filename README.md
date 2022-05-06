@@ -1,0 +1,2 @@
+# wminstall
+wm setup script
