@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Name wanted package names";
-read PkgsNames;
+read -t 10 PkgsNames;
 sudo pacman -Sy freetype2 libx11 libxft libxinerama git ${PkgsNames} || sudo apt update & sudo apt upgrade && sudo apt install make gcc libx11-dev libxft-dev libxinerama-dev ${PkgsNames} || sudo dnf update && sudo dnf install freetype-devel libXft libXinerama-devel git ${PkgsNames} && 
 #sudo emerge --ask ${DwmDependencies} ${PkgsNames} &&
 
